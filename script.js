@@ -106,3 +106,40 @@ function update(location){
     text.innerHTML = location.text;
 }
 
+function goTown(){
+    update(locations[0]);
+}
+
+function goStore(){
+    update(locations[1]);
+}
+
+function goCave(){
+    update(locations[2]);
+}
+
+function buyHealth(){
+    if(gold >= 10){
+        gold -= 10;
+        health += 10;
+        goldText.innerHTML = gold;
+        healthText.innerHTML = health;
+    } else {
+        text.innerText = "You don't have enough gold to buy health.";
+    }
+}
+
+function buyWeapon(){
+   if(currentWeapon < weapons.length - 1){
+    if(gold >= 30){
+        gold -= 30;
+        currentWeapon++;
+        goldText.innerText = gold;
+        let newWeapon = weapons[currentWeapon].name;
+        text.innerText = "You now have a " + newWeapon + ".";
+
+
+        
+    }
+   }
+}
